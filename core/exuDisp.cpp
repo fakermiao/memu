@@ -56,6 +56,35 @@ void exuDisp::exu_disp(){
     
     disp_o_alu_rs1      =   (disp_i_rs1x0 ? 0 : disp_i_rs1);
     disp_o_alu_rs2      =   (disp_i_rs2x0 ? 0 : disp_i_rs2);
+    disp_o_alu_rdwen    =   disp_i_rdwen;
+    disp_o_alu_rdidx    =   disp_i_rdidx;
+    disp_o_alu_info     =   disp_i_info;
+    
+    disp_oitf_ena       =   disp_o_alu_valid & disp_o_alu_ready & (disp_i_info_grp == 0x01);
+
+    disp_o_alu_imm      =   disp_i_imm;
+    disp_o_alu_pc       =   disp_i_pc;
+    disp_o_alu_itag     =   disp_oitf_ptr;
+    disp_o_alu_misalgn  =   disp_i_misalgn;
+    disp_o_alu_buserr   =   disp_i_buserr;
+    disp_o_alu_ilegl    =   disp_i_ilegl;
+
+    disp_oitf_rs1fpu    =   false;
+    disp_oitf_rs2fpu    =   false;
+    disp_oitf_rs3fpu    =   false;
+    disp_oitf_rdfpu     =   false;
+
+    disp_oitf_rs1en     =   disp_i_rs1en;
+    disp_oitf_rs2en     =   disp_i_rs2en;
+    disp_oitf_rs3en     =   false;
+    disp_oitf_rdwen     =   disp_i_rdwen;
+
+    disp_oitf_rs1idx    =   disp_i_rs1idx;
+    disp_oitf_rs2idx    =   disp_i_rs2idx;
+    disp_oitf_rs3idx    =   0x00;
+    disp_oitf_rdidx     =   disp_i_rdidx;
+
+    disp_oitf_pc        =   disp_i_pc;
 
 
 }
